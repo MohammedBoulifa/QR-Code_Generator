@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Code - Generator</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="mark"><strong>Qr</strong>/gen</div>
+  <nav class="tabs">
+    <a href="index.html" class="active">generator</a>
+    <a href="about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <div class="generator">
+
+    <div class="intro">
+      <h1>Turn text into something scannable.</h1>
+      <p>Paste a link or type a line of text. It's encoded on your device - nothing is sent anywhere.</p>
+
+      <div class="field">
+        <label for="text-input">text or url</label>
+        <input type="text" id="text-input" placeholder="https://example.com" autofocus>
+      </div>
+
+      <div class="field">
+        <label for="size-slider">size</label>
+        <div class="size-row">
+          <input type="range" id="size-slider" min="50" max="600" step="10" value="300">
+          <div class="size-number">
+            <input type="number" id="size-number" min="50" max="600" value="300">
+            <span>px</span>
+          </div>
+        </div>
+        <div class="hint">50–600 px</div>
+      </div>
+
+      <div class="options">
+        <div class="field color-field">
+          <label for="dark-hex">code color</label>
+          <div class="color-input">
+            <input type="color" id="dark-picker" value="#17182b">
+            <input type="text" id="dark-hex" value="#17182b" maxlength="7">
+          </div>
+        </div>
+        <div class="field color-field">
+          <label for="light-hex">background</label>
+          <div class="color-input">
+            <input type="color" id="light-picker" value="#ffffff">
+            <input type="text" id="light-hex" value="#ffffff" maxlength="7">
+          </div>
+        </div>
+      </div>
+
+      <button class="generate" id="generate-btn">Generate code</button>
+    </div>
+
+    <div class="specimen-wrap">
+      <div class="specimen">
+        <div class="perforation"></div>
+        <div class="specimen-body" id="qrcode">
+          <div class="placeholder">nothing encoded yet — type something on the left</div>
+        </div>
+        <div class="meta">
+          <div><span class="k">encoded</span><span class="v" id="meta-encoded">—</span></div>
+          <div><span class="k">size</span><span class="v" id="meta-size">—</span></div>
+          <div><span class="k">color</span><span class="v" id="meta-color">—</span></div>
+          <div><span class="k">status</span><span class="v" id="meta-status">idle</span></div>
+        </div>
+      </div>
+      <div class="download-row" id="download-row">
+        <select id="format-select">
+          <option value="png" selected>PNG</option>
+          <option value="jpg">JPG</option>
+          <option value="svg">SVG</option>
+          <option value="pdf">PDF</option>
+        </select>
+        <button class="download" id="download-btn">Download</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
